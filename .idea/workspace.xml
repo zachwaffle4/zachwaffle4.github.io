@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd7fbfab-0970-413e-996f-525401679b94" name="Changes" comment="delete blog posts">
-      <change afterPath="$PROJECT_DIR$/resume.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/nav.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    <list default="true" id="fd7fbfab-0970-413e-996f-525401679b94" name="Changes" comment="update metadata to reflect personal branding and portfolio title">
+      <change afterPath="$PROJECT_DIR$/app/blog/posts/introducing-fateweaver.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fw.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/blog/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/blog/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/blog/posts/static-typing.mdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/blog/posts/vim.mdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +40,10 @@
     &quot;accountId&quot;: &quot;62a4ef25-0b91-4ce6-a5d0-68f8136f53c5&quot;
   }
 }</component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -80,7 +89,7 @@
       <option name="presentableId" value="Default" />
       <updated>1760735125769</updated>
       <workItem from="1760735127114" duration="836000" />
-      <workItem from="1760737290885" duration="476000" />
+      <workItem from="1760737290885" duration="1235000" />
     </task>
     <task id="LOCAL-00001" summary="pnpm lock">
       <option name="closed" value="true" />
@@ -114,7 +123,55 @@
       <option name="project" value="LOCAL" />
       <updated>1760737547202</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add resume page">
+      <option name="closed" value="true" />
+      <created>1760738022464</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1760738022464</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update footer links to personal GitHub profile">
+      <option name="closed" value="true" />
+      <created>1760738039721</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1760738039721</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update TypeScript configuration for improved JSX support and include additional type definitions">
+      <option name="closed" value="true" />
+      <created>1760738050316</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1760738050316</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update portfolio introduction and description to reflect current studies and experiences">
+      <option name="closed" value="true" />
+      <created>1760738054053</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1760738054053</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update navigation to include resume link and remove deploy template link">
+      <option name="closed" value="true" />
+      <created>1760738057351</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1760738057351</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update metadata to reflect personal branding and portfolio title">
+      <option name="closed" value="true" />
+      <created>1760738060326</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1760738060326</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +205,12 @@
     <MESSAGE value="readme" />
     <MESSAGE value="setup idea" />
     <MESSAGE value="delete blog posts" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete blog posts" />
+    <MESSAGE value="add resume page" />
+    <MESSAGE value="update footer links to personal GitHub profile" />
+    <MESSAGE value="update TypeScript configuration for improved JSX support and include additional type definitions" />
+    <MESSAGE value="update portfolio introduction and description to reflect current studies and experiences" />
+    <MESSAGE value="update navigation to include resume link and remove deploy template link" />
+    <MESSAGE value="update metadata to reflect personal branding and portfolio title" />
+    <option name="LAST_COMMIT_MESSAGE" value="update metadata to reflect personal branding and portfolio title" />
   </component>
 </project>
