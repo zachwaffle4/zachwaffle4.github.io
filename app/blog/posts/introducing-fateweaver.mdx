@@ -1,0 +1,112 @@
+---
+title: 'Introducing FateWeaver: Advanced Data Logging for FTC Robotics'
+publishedAt: '2024-10-15'
+summary: 'A powerful RoadRunner-log based data logging library that brings professional-grade telemetry and diagnostics to FIRST Tech Challenge robotics.'
+---
+
+When you're building and programming robots for FIRST Tech Challenge (FTC), one of the biggest challenges is understanding what's happening inside your robot during matches and testing. Traditional telemetry gives you real-time feedback, but what if you need to analyze what happened *after* the fact? That's where **FateWeaver** comes in.
+
+## What is FateWeaver?
+
+FateWeaver is a data logging library for FTC robotics that builds on the RoadRunner log format, allowing you to record detailed telemetry data during your robot's operation and analyze it later using powerful visualization tools like AdvantageScope. Think of it as a "flight recorder" for your robot—capturing everything that happens so you can review and optimize performance.
+
+## Why Data Logging Matters
+
+In competitive robotics, milliseconds and millimeters matter. You might notice your autonomous routine isn't quite hitting its targets, or your drive train behaves differently under load. Without detailed logs, you're left guessing. With FateWeaver, you can:
+
+- **Replay your robot's movements** visually on a field map
+- **Analyze sensor data** to identify patterns or anomalies
+- **Debug autonomous routines** by seeing exactly what your robot thought it was doing
+- **Compare runs** to measure improvements objectively
+- **Share data with your team** for collaborative analysis
+
+## Getting Started is Simple
+
+FateWeaver is available on Maven Central, so adding it to your project is straightforward. Here's a basic example:
+
+```java
+public class MyOpMode extends OpMode {
+    MecanumDrive drive;
+    FlightLogChannel<Pose2d> poses;
+
+    @Override
+    public void init() {
+        drive = new MecanumDrive(hardwareMap, new Pose2d(0.0, 0.0, 0.0));
+        poses = FlightRecorder.createChannel("Robot/Pose", Pose2d.class);
+    }
+
+    @Override
+    public void loop() {
+        drive.setDrivePowers(/* your drive logic */);
+        drive.updatePoseEstimate();
+
+        // Log the robot's position
+        poses.put(drive.localizer.getPose());
+    }
+}
+```
+
+That's it! Your robot is now recording its position throughout the match. After the match, you can download the logs and visualize your robot's actual path compared to what you intended.
+
+## Key Features
+
+### Type-Safe Logging
+
+FateWeaver uses Java's type system to ensure you're logging data correctly. Channels are typed, so you can't accidentally put a `Double` where a `Pose2d` should go. This catches errors at compile time rather than during a match.
+
+### Custom Data Types
+
+Need to log custom classes? FateWeaver supports them out of the box using reflection. For more control, you can define custom serialization schemas:
+
+```kotlin
+val optimizedSchema = CustomStructSchema<SensorReading>(
+    type = "OptimizedSensor",
+    componentNames = listOf("time", "reading", "sensor"),
+    componentSchemas = listOf(LongSchema, DoubleSchema, StringSchema),
+    encoder = { reading ->
+        listOf(
+            reading.timestamp / 1000000,
+            reading.value,
+            reading.sensorId
+        )
+    }
+)
+```
+
+### Drop-In Telemetry Replacement
+
+FateWeaver implements the FTC `Telemetry` interface, meaning you can use it alongside (or instead of) your regular telemetry:
+
+```java
+FlightRecorder.INSTANCE.addData("Status", "Running");
+FlightRecorder.INSTANCE.addData("Heading", "%.1f degrees", getHeading());
+FlightRecorder.INSTANCE.update();
+```
+
+This makes it incredibly easy to add logging to existing code without major refactoring.
+
+### Easy Log Retrieval
+
+Getting your logs off the robot is as simple as connecting to the robot's WiFi and navigating to `192.168.43.1:8080/fate/logs` in your browser. No special software required.
+
+## Real-World Benefits
+
+Teams using data logging libraries like FateWeaver report:
+
+- **Faster debugging cycles**: Instead of re-running code repeatedly to observe behavior, analyze recorded data
+- **Better autonomous routines**: Visualize your robot's actual path vs. planned path to fine-tune motion profiling
+- - **Improved team collaboration**: Share concrete data instead of verbal descriptions of "what the robot did"
+- **Competition readiness**: Review logs from practice matches to identify issues before competition day
+
+## Looking Forward
+
+FateWeaver is designed to grow with your team's needs. Whether you're just starting with basic position logging or implementing advanced multi-sensor fusion diagnostics, the library scales to match your ambitions.
+
+The combination of type safety, flexible schemas, and compatibility with industry-standard visualization tools makes FateWeaver a powerful addition to any FTC team's toolkit.
+
+Ready to take your robot's telemetry to the next level? Check out the [FateWeaver documentation](https://javadoc.io/doc/gay.zharel.fateweaver/ftc/latest/) and start logging today!
+
+---
+
+*FateWeaver is open source and available on Maven Central. For installation instructions and detailed API documentation, visit the project repository.*
+
